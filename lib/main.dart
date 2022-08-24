@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,20 +13,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +25,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -48,9 +37,36 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           Card(
-            color: Colors.red,
-            child: Text('LIST OF TX'),
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Title',
+                    ),
+                    controller: titleController,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Amount',
+                    ),
+                    controller: amountController,
+                  ),
+                  TextButton(
+                    child: Text('Add Transaction'),
+                    style: TextButton.styleFrom(
+                      primary: Colors.purple,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
           ),
+          TransactionList(),
         ],
       ),
     );
