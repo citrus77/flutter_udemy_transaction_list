@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
-class _TransactionList extends StatefulWidget {
-  const _TransactionList({Key key}) : super(key: key);
+class TransactionList extends StatefulWidget {
+  const TransactionList({Key key}) : super(key: key);
 
   @override
-  State<_TransactionList> createState() => __TransactionListState();
+  State<TransactionList> createState() => _TransactionListState();
 }
 
-class __TransactionListState extends State<_TransactionList> {
+class _TransactionListState extends State<TransactionList> {
   final List<Transaction> _userTransactions = [
     Transaction(
       id: 't1',
