@@ -30,7 +30,7 @@ class NewTransaction extends StatelessWidget {
             TextButton(
               child: Text('Add Transaction'),
               style: TextButton.styleFrom(
-                primary: Colors.purple,
+                foregroundColor: Colors.purple,
               ),
               onPressed: () {
                 addTx(
